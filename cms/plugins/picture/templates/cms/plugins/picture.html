@@ -1,3 +1,14 @@
 {% if link %}<a href="{{ link }}">{% endif %}
-<img {% if picture.float %}class="{{ picture.float }}" {% endif %}alt="{{ picture.alt }}" src="{{ picture.image.url }}" />
+<img {% if picture.float %}class="{{ picture.float }}" {% endif %}alt="{{ picture.alt }}" src="{{ picture.image.url }}" id="img_{{ picture.id }}"/>
 {% if link %}</a>{% endif %}
+{% if picture.image_hover %}
+<script type="text/javascript">
+var _img = document.getElementById('img_{{ picture.id }}');
+_img.onmouseover = function() {
+    _img.src = '{{ picture.image_hover.url }}'
+}
+_img.onmouseout = function() {
+    _img.src = '{{ picture.image.url }}'
+}
+</script>
+{% endif %}
