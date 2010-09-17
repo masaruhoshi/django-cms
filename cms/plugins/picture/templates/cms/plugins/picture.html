@@ -3,12 +3,12 @@
 {% if link %}</a>{% endif %}
 {% if picture.image_hover %}
 <script type="text/javascript">
-var _img = document.getElementById('img_{{ picture.id }}');
-_img.onmouseover = function() {
-    _img.src = '{{ picture.image_hover.url }}'
+var _img_{{ picture.id }} = document.getElementById('img_{{ picture.id }}');
+_img_{{ picture.id }}.onmouseover = function() {
+    _img_{{ picture.id }}.src = '{{ picture.image_hover.url }}'
 }
-_img.onmouseout = function() {
-    _img.src = '{{ picture.image.url }}'
+_img_{{ picture.id }}.onmouseout = function() {
+    _img_{{ picture.id }}.src = '{{ picture.image.url }}'
 }
 </script>
 {% endif %}
