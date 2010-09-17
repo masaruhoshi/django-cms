@@ -1,4 +1,3 @@
-
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 from cms.models import CMSPlugin, Page
@@ -18,6 +17,7 @@ class Picture(CMSPlugin):
     
     
     image = models.ImageField(_("image"), upload_to=CMSPlugin.get_media_path)
+    image_hover = models.ImageField(_("image_hover"), upload_to=CMSPlugin.get_media_path, blank=True, null=True, help_text=_("if provided, this image will be shown when mouse is over"))
     url = models.CharField(_("link"), max_length=255, blank=True, null=True, help_text=_("if present image will be clickable"))
     page_link = models.ForeignKey(Page, verbose_name=_("page"), null=True, blank=True, help_text=_("if present image will be clickable"))
     alt = models.CharField(_("alternate text"), max_length=255, blank=True, null=True, help_text=_("textual description of the image"))
